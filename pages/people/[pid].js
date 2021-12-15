@@ -32,32 +32,32 @@ export default function Person() {
 
   return (
     <div className="px-6">
-      <div className="mt-4 flex justify-between">
-        <p className="text-2xl font-semibold">{data.person.name}</p>
+      <div className="flex justify-between mt-4">
+        <p className="text-2xl font-semibold">{data?.person.name}</p>
         <button
           onClick={() => addEvent(router.query.pid)}
           type="button"
           disabled={isSaving}
-          className="inline-flex items-center px-2 py-2 text-sm leading-4 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:outline-none"
+          className="inline-flex items-center px-2 py-2 text-sm font-medium leading-4 text-white bg-blue-600 rounded-md hover:bg-blue-700 active:bg-blue-800 focus:outline-none"
         >
           {!isSaving ? (
-            <Icons.PlusIcon className="h-4 w-4" aria-hidden="true" />
+            <Icons.PlusIcon className="w-4 h-4" aria-hidden="true" />
           ) : (
-            <Spinner className="h-4 w-4 text-white" />
+            <Spinner className="w-4 h-4 text-white" />
           )}
         </button>
       </div>
 
       <div className="">
         <div className="py-8">
-          {data.person.events.length > 0 ? (
+          {data?.person.events.length > 0 ? (
             <div className="flow-root">
               <ul role="list" className="-mb-8">
                 {data.person.events.map((event, index) => (
                   <div className="relative pb-8" key={event.id}>
                     {index !== data.person.events.length - 1 && (
                       <span
-                        className="absolute top-4 left-4 -ml-px h-full w-px bg-gray-200"
+                        className="absolute w-px h-full -ml-px bg-gray-200 top-4 left-4"
                         aria-hidden="true"
                       />
                     )}
@@ -67,7 +67,7 @@ export default function Person() {
               </ul>
             </div>
           ) : (
-            <div className="text-gray-500 text-sm">
+            <div className="text-sm text-gray-500">
               <p>No events.</p>
             </div>
           )}
@@ -94,7 +94,7 @@ function Event({ event }) {
               eventStyles[event.type].iconBackground
             } h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white`}
           >
-            <Icon className="h-5 w-5 text-white" aria-hidden="true" />
+            <Icon className="w-5 h-5 text-white" aria-hidden="true" />
           </span>
         </div>
         <div className="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
@@ -106,7 +106,7 @@ function Event({ event }) {
               </strong>
             </p>
           </div>
-          <div className="text-right text-sm whitespace-nowrap text-gray-500">
+          <div className="text-sm text-right text-gray-500 whitespace-nowrap">
             <time dateTime={event.datetime}>{event.date}</time>
           </div>
         </div>

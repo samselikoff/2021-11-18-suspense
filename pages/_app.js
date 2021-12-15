@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import useSWR, { SWRConfig, mutate } from "swr";
 import "tailwindcss/tailwind.css";
 import { makeServer } from "../mirage";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Spinner from "../components/spinner";
 
@@ -28,19 +28,10 @@ export default function Wrapper(props) {
       <SWRConfig
         value={{
           fetcher: (...args) => fetch(...args).then((res) => res.json()),
-          suspense: true,
           use: [trackLiveQueries],
         }}
       >
-        <Suspense
-          fallback={
-            <div className="flex items-center justify-center w-screen h-screen">
-              <Spinner />
-            </div>
-          }
-        >
-          <App {...props} />
-        </Suspense>
+        <App {...props} />
       </SWRConfig>
     </div>
   );
@@ -48,10 +39,6 @@ export default function Wrapper(props) {
 
 function App({ Component, pageProps }) {
   let { data } = useSWR(`/api/people`);
-  let [hasRendered, setHasRendered] = useState(false);
-  useEffect(() => {
-    setHasRendered(true);
-  }, []);
 
   return (
     <div className="flex w-full max-w-3xl mx-auto bg-white rounded-md shadow max-h-[442px] overflow-hidden">
@@ -66,7 +53,7 @@ function App({ Component, pageProps }) {
             role="list"
             className="max-h-full px-4 pt-2 overflow-y-scroll divide-y divide-gray-100"
           >
-            {data.people.map((person) => (
+            {data?.people.map((person) => (
               <PersonLink person={person} key={person.id} />
             ))}
           </ul>
@@ -74,19 +61,7 @@ function App({ Component, pageProps }) {
       </div>
       <div className="w-2/3">
         <div className="max-h-full overflow-y-scroll">
-          {hasRendered ? (
-            <Suspense
-              fallback={
-                <div className="flex justify-center w-full pt-12">
-                  <Spinner />
-                </div>
-              }
-            >
-              <Component {...pageProps} />
-            </Suspense>
-          ) : (
-            <Component {...pageProps} />
-          )}
+          <Component {...pageProps} />
         </div>
       </div>
     </div>
