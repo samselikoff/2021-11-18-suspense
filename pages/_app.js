@@ -24,23 +24,25 @@ export default function Wrapper(props) {
   }
 
   return (
-    <SWRConfig
-      value={{
-        fetcher: (...args) => fetch(...args).then((res) => res.json()),
-        suspense: true,
-        use: [trackLiveQueries],
-      }}
-    >
-      <Suspense
-        fallback={
-          <div className="w-screen h-screen flex justify-center pt-12">
-            <Spinner />
-          </div>
-        }
+    <div className="flex items-center justify-center w-full min-h-screen p-8 antialiased bg-gray-100">
+      <SWRConfig
+        value={{
+          fetcher: (...args) => fetch(...args).then((res) => res.json()),
+          suspense: true,
+          use: [trackLiveQueries],
+        }}
       >
-        <App {...props} />
-      </Suspense>
-    </SWRConfig>
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center w-screen h-screen">
+              <Spinner />
+            </div>
+          }
+        >
+          <App {...props} />
+        </Suspense>
+      </SWRConfig>
+    </div>
   );
 }
 
@@ -52,17 +54,17 @@ function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <div className="antialiased flex h-screen">
+    <div className="flex w-full max-w-3xl mx-auto bg-white rounded-md shadow max-h-[442px] overflow-hidden">
       <div className="w-1/3">
-        <div className="border-r flex flex-col max-h-full">
+        <div className="flex flex-col max-h-full border-r">
           <Link href="/">
-            <a className="px-7 pt-4 pb-2 text-lg font-semibold border-b ">
+            <a className="pt-4 pb-2 text-lg font-semibold border-b px-7 ">
               People
             </a>
           </Link>
           <ul
             role="list"
-            className="divide-y divide-gray-100 max-h-full overflow-y-scroll px-4 pt-2"
+            className="max-h-full px-4 pt-2 overflow-y-scroll divide-y divide-gray-100"
           >
             {data.people.map((person) => (
               <PersonLink person={person} key={person.id} />
@@ -71,11 +73,11 @@ function App({ Component, pageProps }) {
         </div>
       </div>
       <div className="w-2/3">
-        <div className="overflow-y-scroll max-h-full">
+        <div className="max-h-full overflow-y-scroll">
           {hasRendered ? (
             <Suspense
               fallback={
-                <div className="w-full flex justify-center pt-12">
+                <div className="flex justify-center w-full pt-12">
                   <Spinner />
                 </div>
               }
@@ -103,7 +105,7 @@ function PersonLink({ person }) {
           ${active ? "bg-gray-200" : "hover:bg-gray-50"} 
           pl-4 pr-3 py-4 flex items-center rounded -my-px relative -mx-1`}
         >
-          <div className="flex justify-between items-center w-full">
+          <div className="flex items-center justify-between w-full">
             <p className="text-sm font-medium">{person.name}</p>
             <span
               className={`${
