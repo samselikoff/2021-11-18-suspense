@@ -1,26 +1,26 @@
 import { ArrowSmDownIcon, ArrowSmUpIcon } from "@heroicons/react/solid";
 
 let item = {
-  id: 1,
-  name: "Total Subscribers",
-  stat: "71,897",
-  change: "122",
+  id: 2,
+  name: "Avg. Open Rate",
+  stat: "58.16%",
+  change: "5.4%",
   changeType: "increase",
 };
 
-export default function TwitterStats() {
+export default function YouTubeStats() {
   return (
     <div className="relative p-6 overflow-hidden bg-white rounded-lg shadow">
       <div className="flex items-center">
-        <TwitterIcon className="w-10 h-10 text-[#1DA1F2]" />
+        <YouTubeIcon className="w-11 h-11 text-[#FF0000]" />
         <div className="pl-5">
           <dt>
             <p className="text-sm font-medium text-gray-500 truncate">
-              Followers
+              Subscribers
             </p>
           </dt>
           <dd className="flex items-baseline">
-            <p className="text-2xl font-semibold text-gray-900">71,897</p>
+            <p className="text-2xl font-semibold text-gray-900">33,581</p>
             <p
               className={`${
                 item.changeType === "increase"
@@ -47,15 +47,15 @@ export default function TwitterStats() {
   );
 }
 
-function TwitterIcon(props) {
+function YouTubeIcon(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill="currentColor"
       viewBox="0 0 24 24"
+      fill="currentColor"
       {...props}
     >
-      <path d="M24 4.557a9.83 9.83 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.916 4.916 0 00-3.594-1.555c-3.179 0-5.515 2.966-4.797 6.045A13.978 13.978 0 011.671 3.149a4.93 4.93 0 001.523 6.574 4.903 4.903 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.224.084 4.928 4.928 0 004.6 3.419A9.9 9.9 0 010 19.54a13.94 13.94 0 007.548 2.212c9.142 0 14.307-7.721 13.995-14.646A10.025 10.025 0 0024 4.557z" />
+      <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 3.993L9 16z" />
     </svg>
   );
 }
