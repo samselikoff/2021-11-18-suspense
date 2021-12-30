@@ -53,9 +53,13 @@ function App({ Component, pageProps }) {
             role="list"
             className="max-h-full px-4 pt-2 overflow-y-scroll divide-y divide-gray-100"
           >
-            {data?.people.map((person) => (
-              <PersonLink person={person} key={person.id} />
-            ))}
+            {!data ? (
+              <Spinner />
+            ) : (
+              data.people.map((person) => (
+                <PersonLink person={person} key={person.id} />
+              ))
+            )}
           </ul>
         </div>
       </div>

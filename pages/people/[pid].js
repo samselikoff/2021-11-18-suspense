@@ -50,7 +50,9 @@ export default function Person() {
 
       <div className="">
         <div className="py-8">
-          {data?.person.events.length > 0 ? (
+          {!data ? (
+            <Spinner />
+          ) : data?.person.events.length > 0 ? (
             <div className="flow-root">
               <ul role="list" className="-mb-8">
                 {data.person.events.map((event, index) => (
