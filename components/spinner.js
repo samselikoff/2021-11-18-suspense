@@ -1,9 +1,6 @@
 export default function Spinner(props) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
       className="text-gray-500"
       viewBox="0 0 2400 2400"
       width={24}

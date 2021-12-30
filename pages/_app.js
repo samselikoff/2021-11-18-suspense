@@ -8,7 +8,7 @@ if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
   }
 }
 
-export default function Wrapper(props) {
+export default function App({ Component, pageProps }) {
   return (
     <div className="flex items-center justify-center w-full min-h-screen antialiased bg-slate-100">
       <SWRConfig
@@ -16,16 +16,10 @@ export default function Wrapper(props) {
           fetcher: (...args) => fetch(...args).then((res) => res.json()),
         }}
       >
-        <App {...props} />
+        <div className="w-full max-w-4xl">
+          <Component {...pageProps} />
+        </div>
       </SWRConfig>
-    </div>
-  );
-}
-
-function App({ Component, pageProps }) {
-  return (
-    <div className="flex mx-auto">
-      <Component {...pageProps} />
     </div>
   );
 }

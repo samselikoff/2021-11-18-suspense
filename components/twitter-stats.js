@@ -1,4 +1,6 @@
 import { ArrowSmDownIcon, ArrowSmUpIcon } from "@heroicons/react/solid";
+import useSWR from "swr";
+import Spinner from "./spinner";
 
 let item = {
   id: 1,
@@ -9,40 +11,47 @@ let item = {
 };
 
 export default function TwitterStats() {
+  let { data } = useSWR("/api/twitter");
+
   return (
-    <div className="relative p-6 overflow-hidden bg-white rounded-lg shadow">
-      <div className="flex items-center">
-        <TwitterIcon className="w-10 h-10 text-[#1DA1F2]" />
-        <div className="pl-5">
-          <dt>
-            <p className="text-sm font-medium text-gray-500 truncate">
-              Followers
-            </p>
-          </dt>
-          <dd className="flex items-baseline">
-            <p className="text-2xl font-semibold text-gray-900">71,897</p>
-            <p
-              className={`${
-                item.changeType === "increase"
-                  ? "text-green-600"
-                  : "text-red-600"
-              }
+    <div className="flex items-center justify-center p-6 overflow-hidden bg-white rounded-lg shadow">
+      {data ? (
+        <>
+          <TwitterIcon className="w-10 h-10 text-[#1DA1F2]" />
+          <div className="pl-5">
+            <dt>
+              <p className="text-sm font-medium text-gray-500 truncate">
+                Followers
+              </p>
+            </dt>
+            <dd className="flex items-baseline">
+              <p className="text-2xl font-semibold text-gray-900">71,897</p>
+              <p
+                className={`${
+                  item.changeType === "increase"
+                    ? "text-green-600"
+                    : "text-red-600"
+                }
                 "ml-2 flex items-baseline text-sm font-semibold"
               `}
-            >
-              {item.changeType === "increase" ? (
-                <ArrowSmUpIcon className="self-center w-5 h-5 text-green-500 shrink-0" />
-              ) : (
-                <ArrowSmDownIcon className="self-center w-5 h-5 text-red-500 shrink-0" />
-              )}
-              <span className="sr-only">
-                {item.changeType === "increase" ? "Increased" : "Decreased"} by
-              </span>
-              {item.change}
-            </p>
-          </dd>
-        </div>
-      </div>
+              >
+                {item.changeType === "increase" ? (
+                  <ArrowSmUpIcon className="self-center w-5 h-5 text-green-500 shrink-0" />
+                ) : (
+                  <ArrowSmDownIcon className="self-center w-5 h-5 text-red-500 shrink-0" />
+                )}
+                <span className="sr-only">
+                  {item.changeType === "increase" ? "Increased" : "Decreased"}{" "}
+                  by
+                </span>
+                {item.change}
+              </p>
+            </dd>
+          </div>
+        </>
+      ) : (
+        <Spinner />
+      )}
     </div>
   );
 }
