@@ -16,7 +16,6 @@ export default function App({ Component, pageProps }) {
       <SWRConfig
         value={{
           fetcher: (...args) => {
-            console.log({ isClient });
             return isClient
               ? fetch(...args).then((res) => res.json())
               : new Promise(() => {});
