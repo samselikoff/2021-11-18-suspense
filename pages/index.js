@@ -7,11 +7,11 @@ export default function Home() {
     <div className="p-8">
       <h3 className="text-lg font-medium leading-6 text-gray-900">Dashboard</h3>
 
-      <dl className="grid grid-cols-3 gap-5 mt-5">
+      <div className="grid grid-cols-3 gap-5 mt-5">
         <TwitterStats />
         <YouTubeStats />
         <ChipotleStats />
-      </dl>
+      </div>
     </div>
   );
 }

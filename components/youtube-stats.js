@@ -19,12 +19,10 @@ export default function YouTubeStats() {
         <>
           <YouTubeIcon className="w-11 h-11 text-[#FF0000]" />
           <div className="pl-5">
-            <dt>
-              <p className="text-sm font-medium text-gray-500 truncate">
-                Subscribers
-              </p>
-            </dt>
-            <dd className="flex items-baseline">
+            <p className="text-sm font-medium text-gray-500 truncate">
+              Subscribers
+            </p>
+            <div className="flex items-baseline">
               <p className="text-2xl font-semibold text-gray-900">33,581</p>
               <p
                 className={`${
@@ -46,7 +44,7 @@ export default function YouTubeStats() {
                 </span>
                 {item.change}
               </p>
-            </dd>
+            </div>
           </div>
         </>
       ) : (

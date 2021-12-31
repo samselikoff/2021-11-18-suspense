@@ -17,12 +17,10 @@ export default function YouTubeStats() {
         <>
           <ChipotleIcon className="w-11 h-11" />
           <div className="pl-5">
-            <dt>
-              <p className="text-sm font-medium text-gray-500 truncate">
-                Burritos
-              </p>
-            </dt>
-            <dd className="flex items-baseline">
+            <p className="text-sm font-medium text-gray-500 truncate">
+              Burritos
+            </p>
+            <div className="flex items-baseline">
               <p className="text-2xl font-semibold text-gray-900">2,152</p>
               <p
                 className={`${
@@ -44,7 +42,7 @@ export default function YouTubeStats() {
                 </span>
                 {item.change}
               </p>
-            </dd>
+            </div>
           </div>
         </>
       ) : (

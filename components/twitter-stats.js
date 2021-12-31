@@ -19,12 +19,10 @@ export default function TwitterStats() {
         <>
           <TwitterIcon className="w-10 h-10 text-[#1DA1F2]" />
           <div className="pl-5">
-            <dt>
-              <p className="text-sm font-medium text-gray-500 truncate">
-                Followers
-              </p>
-            </dt>
-            <dd className="flex items-baseline">
+            <p className="text-sm font-medium text-gray-500 truncate">
+              Followers
+            </p>
+            <div className="flex items-baseline">
               <p className="text-2xl font-semibold text-gray-900">71,897</p>
               <p
                 className={`${
@@ -46,7 +44,7 @@ export default function TwitterStats() {
                 </span>
                 {item.change}
               </p>
-            </dd>
+            </div>
           </div>
         </>
       ) : (
