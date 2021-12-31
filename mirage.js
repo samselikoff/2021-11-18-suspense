@@ -27,12 +27,10 @@ export function makeServer({ environment = "test" } = {}) {
       this.get(
         "/youtube",
         () => {
-          // return new Promise(() => {});
-
           return {
-            stat: "71,897",
-            change: "122",
-            changeType: "increase",
+            stat: "33,581",
+            change: "412",
+            changeType: "decrease",
           };
         },
         { timing: 2000 }
@@ -41,15 +39,25 @@ export function makeServer({ environment = "test" } = {}) {
       this.get(
         "/chipotle",
         () => {
-          // return new Promise(() => {});
-
           return {
-            stat: "71,897",
-            change: "122",
+            stat: "2,152",
+            change: "54",
             changeType: "increase",
           };
         },
         { timing: 1250 }
+      );
+
+      this.get(
+        "/instagram",
+        () => {
+          return {
+            stat: "14,581",
+            change: "24",
+            changeType: "increase",
+          };
+        },
+        { timing: 500 }
       );
 
       this.namespace = "";

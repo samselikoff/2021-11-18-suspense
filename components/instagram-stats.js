@@ -1,15 +1,15 @@
 import { ArrowSmDownIcon, ArrowSmUpIcon } from "@heroicons/react/solid";
 import useSWR from "swr";
-import ChipotleIcon from "./icons/chipotle";
+import InstagramLogo from "./icons/instagram";
 
-export default function YouTubeStats() {
-  let { data } = useSWR("/api/chipotle");
+export default function InstagramStats() {
+  let { data } = useSWR("/api/instagram");
 
   return (
     <div className="flex items-center p-6 overflow-hidden bg-white rounded-lg shadow">
-      <ChipotleIcon className="w-10 h-10" />
+      <InstagramLogo className="w-10 h-10" />
       <div className="pl-5">
-        <p className="text-sm font-medium text-gray-500 truncate">Burritos</p>
+        <p className="text-sm font-medium text-gray-500 truncate">Followers</p>
         <div className="flex items-baseline">
           <p className="text-2xl font-semibold text-gray-900">{data.stat}</p>
           <p
