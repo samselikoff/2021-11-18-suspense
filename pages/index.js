@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Suspense } from "react";
 import ChipotleStats from "../components/chipotle-stats";
-import InstagramStats from "../components/instagram-stats";
 import Spinner from "../components/spinner";
 import TwitterStats from "../components/twitter-stats";
 import YouTubeStats from "../components/youtube-stats";
@@ -39,9 +38,6 @@ export default function Home() {
           <motion.div variants={item}>
             <ChipotleStats />
           </motion.div>
-          {/* <motion.div variants={item}>
-            <InstagramStats />
-          </motion.div> */}
         </motion.div>
       </Suspense>
     </div>
