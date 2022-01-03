@@ -39,9 +39,9 @@ export default function Home() {
           <motion.div variants={item}>
             <ChipotleStats />
           </motion.div>
-          <motion.div variants={item}>
+          {/* <motion.div variants={item}>
             <InstagramStats />
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </Suspense>
     </div>

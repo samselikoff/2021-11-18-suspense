@@ -33,7 +33,7 @@ export function makeServer({ environment = "test" } = {}) {
             changeType: "decrease",
           };
         },
-        { timing: 2000 }
+        { timing: 1750 }
       );
 
       this.get(
