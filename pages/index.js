@@ -28,7 +28,7 @@ export default function Home() {
           variants={parent}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-1 gap-5 mt-5 sm:grid-cols-3"
+          className="grid grid-cols-1 gap-5 mt-5 sm:grid-cols-2"
         >
           <motion.div variants={stat}>
             <TwitterStats />
@@ -50,7 +50,7 @@ export default function Home() {
 
 function Loading() {
   return (
-    <div className="flex justify-center mt-44">
+    <div className="flex justify-center mt-44 sm:mt-28">
       <Spinner />
     </div>
   );

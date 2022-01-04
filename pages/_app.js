@@ -11,7 +11,7 @@ if (isClient && process.env.NODE_ENV === "development") {
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className="flex justify-center w-full min-h-screen px-20 pt-8 antialiased md:pt-28 bg-slate-100">
+    <div className="flex justify-center w-full min-h-screen pt-8 antialiased xs:px-20 sm:px-10 md:pt-28 bg-slate-100">
       <SWRConfig
         value={{
           fetcher: (...args) => {
