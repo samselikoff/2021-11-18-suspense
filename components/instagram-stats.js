@@ -1,13 +1,13 @@
 import { ArrowSmDownIcon, ArrowSmUpIcon } from "@heroicons/react/solid";
 import useSWR from "swr";
-import TwitterIcon from "./icons/twitter";
+import InstagramLogo from "./icons/instagram";
 
-export default function TwitterStats() {
-  let { data } = useSWR("/api/twitter");
+export default function InstagramStats() {
+  let { data } = useSWR("/api/instagram");
 
   return (
     <div className="flex items-center px-10 py-6 overflow-hidden bg-white rounded-lg shadow">
-      <TwitterIcon className="w-10 h-10 shrink-0 text-[#1DA1F2]" />
+      <InstagramLogo className="w-10 h-10 shrink-0 text-[#1DA1F2]" />
       <div className="pl-5">
         <p className="text-sm font-medium text-gray-500 truncate">Followers</p>
         <div className="flex items-baseline">
