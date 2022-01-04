@@ -1,9 +1,7 @@
 # A Quick Intro to Suspense in React 18
 
-Source code for the demo of my YouTube video, which you can watch here:
+Source code of the demo from my YouTube video!
 
-https://youtu.be/FpFetyxapto
-
-Check out CodeSandbox for a live version:
-
-https://codesandbox.io/s/objective-leftpad-d0nwx?file=/pages/index.js
+- [Watch the video](https://youtu.be/FpFetyxapto)
+- [Live demo on CodeSandbox](https://codesandbox.io/s/objective-leftpad-d0nwx?file=/pages/index.js)
+- [See the diff from the video](https://github.com/samselikoff/2021-11-18-suspense/commit/12c7044d947adce37b239b22fa25610385d3a300)
